@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const Tabs = (topics) => {
     const divline1 = document.createElement('div');
   
@@ -28,16 +30,18 @@ const Tabs = (topics) => {
 const tabsAppender = (selector) => {
   let URL = `http://localhost:5001/api/topics`
   const pick = document.querySelector(selector);
-  const topics = () => { 
+
     axios.get(URL)
    .then (res => {
-     console.log(res)
+     const topics = res.data.topics;
+     console.log(res.data)
+     pick.appendChild(Tabs(topics))
    })
    .catch (err => {
      console.log(err);
    })
-  }
-   return pick.appendChild(Tabs(topics));
+/*   return topics(); */
+   return pick;
    
   // TASK 4
   // ---------------------
