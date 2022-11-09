@@ -2,11 +2,11 @@ import axios from "axios";
 
 const Tabs = (topics) => {
     const divline1 = document.createElement('div');
-  
+    divline1.classList.add('topics');
     topics.forEach(element => {
       const divline21 = document.createElement('div');
       divline21.classList.add('tab');
-      divline21.textContent =element;
+      divline21.textContent = element;
       divline1.appendChild(divline21);
     });
     console.log('blue');
@@ -32,15 +32,14 @@ const tabsAppender = (selector) => {
   const pick = document.querySelector(selector);
 
     axios.get(URL)
-   .then (res => {
-     const topics = res.data.topics;
-     console.log(res.data)
-     pick.appendChild(Tabs(topics))
-   })
-   .catch (err => {
-     console.log(err);
-   })
-/*   return topics(); */
+      .then (res => {
+        const topics = res.data.topics;
+        console.log(res.data)
+        pick.appendChild(Tabs(topics))
+      })
+      .catch (err => {
+        console.log(err);
+      })
    return pick;
    
   // TASK 4

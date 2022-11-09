@@ -51,7 +51,6 @@ const cardAppender = (selector) => {
    .then (res => {
      const articles = res.data.articles;
      console.log(articles)
-     console.log(articles.bootstrap)
 
      articles.bootstrap.forEach(ind => {
       pick.appendChild(Card(ind))
